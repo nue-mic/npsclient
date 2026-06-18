@@ -25,7 +25,7 @@ jobs:
           current_nps_version=$(grep -oP '^val npsVersion = "\K[0-9\.]+' app/build.gradle.kts | xargs)
           echo "Current NPS version: '$current_nps_version'"
           
-          latest_version=$(curl --silent "https://api.github.com/repos/djylb/nps/releases/latest" | jq -r .tag_name)
+          latest_version=$(curl --silent "https://api.github.com/repos/mia-clark/nps/releases/latest" | jq -r .tag_name)
           if [ "$latest_version" = "null" ] || [ -z "$latest_version" ]; then
             echo "Failed to retrieve remote version, using current version."
             latest_version_no_v="$current_nps_version"
@@ -69,7 +69,7 @@ jobs:
       - name: Download NPC client libs
         run: |
           set -eux
-          curl -fL "https://github.com/djylb/nps/releases/latest/download/android_libs_client.tar.gz" \
+          curl -fL "https://github.com/mia-clark/nps/releases/latest/download/android_libs_client.tar.gz" \
             -o android_libs_client.tar.gz
           tar -tzf android_libs_client.tar.gz | sort | sed 's/^/  /'
 
