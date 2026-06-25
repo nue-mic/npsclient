@@ -83,7 +83,7 @@ jobs:
 
       - name: Trigger update Magisk
         run: |
-          curl -X POST https://api.github.com/repos/mia-clark/npsclient-magisk/dispatches \
+          curl -X POST https://api.github.com/repos/nue-mic/npsclient-magisk/dispatches \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GH_PAT }}" \
             -d '{"event_type":"trigger-update"}'
